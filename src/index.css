@@ -47,3 +47,88 @@
 .text-shadow-gold {
   text-shadow: 0 0 15px rgba(255, 215, 0, 0.35);
 }
+
+@keyframes parade-traverse-cow {
+  from { left: -350px; }
+  to { left: 110vw; }
+}
+
+@keyframes parade-traverse-goat {
+  from { left: -350px; }
+  to { left: 110vw; }
+}
+
+@keyframes parade-traverse-sheep {
+  from { left: -350px; }
+  to { left: 110vw; }
+}
+
+@keyframes bounce-gait {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+@keyframes leg-swing {
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+
+@keyframes tail-wag {
+  0% { transform: rotate(-10deg) scale(0.95); }
+  100% { transform: rotate(15deg) scale(1.05); }
+}
+
+.anim-cow-walk {
+  animation: parade-traverse-cow 25s linear infinite;
+  left: -350px;
+}
+
+.anim-goat-walk {
+  animation: parade-traverse-goat 20s linear infinite;
+  animation-delay: 2s;
+  left: -350px;
+}
+
+.anim-sheep-walk {
+  animation: parade-traverse-sheep 18s linear infinite;
+  animation-delay: 4s;
+  left: -350px;
+}
+
+.anim-bounce-gait {
+  animation: bounce-gait ease-in-out infinite alternate;
+}
+
+.anim-leg-rt {
+  transform-origin: 50% 10%;
+  transform-box: fill-box;
+  animation: leg-swing ease-in-out infinite alternate;
+}
+
+.anim-leg-lt {
+  transform-origin: 50% 10%;
+  transform-box: fill-box;
+  animation: leg-swing ease-in-out infinite alternate-reverse;
+}
+
+.anim-tail {
+  transform-origin: 100% 50%;
+  transform-box: fill-box;
+  animation: tail-wag ease-in-out infinite alternate;
+}
+
+/* Custom Scrollbar for Guestbook */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+}
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background-color: rgba(201, 168, 76, 0.5);
+  border-radius: 20px;
+}
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201, 168, 76, 0.5) transparent;
+}

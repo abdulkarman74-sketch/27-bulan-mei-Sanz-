@@ -1,0 +1,26 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isValidUcapan(data) {
+      return data.keys().hasAll(['nama', 'ucapan', 'waktu', 'avatar_color']) &&
+             data.keys().size() == 4 &&
+             data.nama is string && data.nama.size() > 0 && data.nama.size() <= 30 &&
+             data.ucapan is string && data.ucapan.size() > 0 && data.ucapan.size() <= 150 &&
+             data.waktu is number && // Note: using server-side request.time if possible, but the app uses Date.now(). Let's allow number for now since we don't have authentication for this guestbook.
+             data.avatar_color is string && data.avatar_color.size() <= 7;
+    }
+
+    match /ucapan/{ucapanId} {
+      // Allow anyone to read the guestbook
+      allow read: if true;
+      // Allow anyone to write, but must match the schema and ID must be valid
+      allow create: if ucapanId is string && ucapanId.size() <= 128 && ucapanId.matches('^[a-zA-Z0-9_\\-]+$') && isValidUcapan(request.resource.data);
+      // No updates or deletes allowed for the guestbook
+      allow update, delete: if false;
+    }
+  }
+}

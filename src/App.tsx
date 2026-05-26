@@ -8,6 +8,7 @@ import MinalAidzin from './components/MinalAidzin';
 import AnimalParade from './components/AnimalParade';
 import Silhouettes from './components/Silhouettes';
 import Decorations, { Divider } from './components/Decorations';
+import FirebaseGuestbook from './components/FirebaseGuestbook';
 import { Share2 } from 'lucide-react';
 
 export default function App() {
@@ -108,6 +109,19 @@ export default function App() {
         </motion.section>
 
         <MinalAidzin />
+
+        <Divider />
+
+        {/* Guestbook Section */}
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          className="w-full mb-12"
+        >
+           <FirebaseGuestbook />
+        </motion.section>
 
         <Divider />
 

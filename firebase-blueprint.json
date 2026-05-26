@@ -1,0 +1,36 @@
+{
+  "entities": {
+    "Ucapan": {
+      "title": "Ucapan Idul Adha",
+      "description": "Pesan ucapan dan doa dari tamu",
+      "type": "object",
+      "properties": {
+        "nama": {
+          "type": "string",
+          "description": "Nama pengirim ucapan"
+        },
+        "ucapan": {
+          "type": "string",
+          "description": "Isi pesan ucapan dan doa"
+        },
+        "waktu": {
+          "type": "number",
+          "description": "Timestamp kapan ucapan dikirim"
+        },
+        "avatar_color": {
+          "type": "string",
+          "description": "Hex color code for the avatar"
+        }
+      },
+      "required": ["nama", "ucapan", "waktu", "avatar_color"]
+    }
+  },
+  "firestore": {
+    "ucapan": {
+      "schema": {
+        "$ref": "#/entities/Ucapan"
+      },
+      "description": "Koleksi semua ucapan tamu"
+    }
+  }
+}
