@@ -46,7 +46,7 @@ export default function AudioPlayer() {
     <>
       <audio
         ref={audioRef}
-        src="https://c.termai.cc/a134/Rv8tQow.mp3"
+        src="https://c.termai.cc/a154/OjVD.mp3"
         loop
         autoPlay
         muted={isMuted}
